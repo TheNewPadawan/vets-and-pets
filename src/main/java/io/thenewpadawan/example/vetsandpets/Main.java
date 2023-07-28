@@ -1,4 +1,4 @@
-package io.lamberto.example.vetsandpets;
+package io.thenewpadawan.example.vetsandpets;
 
 public class Main {
 
