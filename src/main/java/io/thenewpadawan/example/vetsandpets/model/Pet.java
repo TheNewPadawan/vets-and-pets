@@ -1,6 +1,7 @@
 package io.thenewpadawan.example.vetsandpets.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Pet {
 	private long id;
@@ -44,5 +45,25 @@ public class Pet {
 
 	public Date getDateOfBirth() {
 		return dateOfBirth;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(breed, dateOfBirth, id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pet other = (Pet) obj;
+		return Objects.equals(breed, other.breed)
+				&& Objects.equals(dateOfBirth, other.dateOfBirth)
+				&& (id > 0 && other.id > 0 ? id == other.id : true)
+				&& Objects.equals(name, other.name);
 	}
 }
