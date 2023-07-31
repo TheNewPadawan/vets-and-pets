@@ -17,6 +17,14 @@ public class Person {
 	}
 	
 	public void adopt(Pet pet) {
+		if (pet == null) {
+			return;
+		}
+		for (int i = 0; i < pets.size(); i++) {
+			if (pet.equals(pets.get(i))) {
+				return;
+			}
+		}
 		this.pets.add(pet);
 	}
 	
