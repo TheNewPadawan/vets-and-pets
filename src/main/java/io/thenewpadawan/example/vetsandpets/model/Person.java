@@ -1,10 +1,13 @@
 package io.thenewpadawan.example.vetsandpets.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 	private long id;
 	private String firstname;
 	private String lastname;
-	private Pet pet;
+	private List<Pet> pets = new ArrayList<>();
 	
 	public Person() {}
 
@@ -14,7 +17,7 @@ public class Person {
 	}
 	
 	public void adopt(Pet pet) {
-		this.pet = pet;
+		this.pets.add(pet);
 	}
 	
 	public long getId() {
@@ -41,7 +44,7 @@ public class Person {
 		this.lastname = lastname;
 	}
 	
-	public Pet getPet() {
-		return pet;
+	public List<Pet> getPets() {
+		return pets;
 	}
 }

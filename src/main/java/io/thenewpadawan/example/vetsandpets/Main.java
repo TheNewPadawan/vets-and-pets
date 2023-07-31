@@ -17,10 +17,15 @@ public class Main {
 		//1) Ti do una persona
 		//2) Ti do un animale
 		//3) Fa si che la persona adotti l'animale
+		//4) Ogni persona può adottare N animali
 		//nota bene: la relazione deve essere persistente
 		p1.adopt(pet1);
-		System.out.println("Che bel cucciolo, come si chiama? " + p1.getPet().getName());
 		p1.adopt(pet2);
-		System.out.println("Che bel cucciolo, come si chiama? " + p1.getPet().getName());
+		for (Pet pet : p1.getPets()) {
+			System.out.println("Che bel cucciolo, come si chiama? " + pet.getName());
+		}
+		p1.getPets().forEach(pet -> {
+			System.out.println("Che bel cucciolo, come si chiama? " + pet.getName());
+		});
 	}
 }
