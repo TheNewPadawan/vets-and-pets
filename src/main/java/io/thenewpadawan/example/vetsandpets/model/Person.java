@@ -4,12 +4,17 @@ public class Person {
 	private long id;
 	private String firstname;
 	private String lastname;
+	private Pet pet;
 	
 	public Person() {}
 
 	public Person(String firstname, String lastname) {
 		this.firstname = firstname;
 		this.lastname = lastname;
+	}
+	
+	public void adopt(Pet pet) {
+		this.pet = pet;
 	}
 	
 	public long getId() {
@@ -34,5 +39,9 @@ public class Person {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}	
+	}
+	
+	public Pet getPet() {
+		return pet;
+	}
 }
