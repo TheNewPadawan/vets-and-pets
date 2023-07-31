@@ -18,9 +18,11 @@ public class Main {
 		//2) Ti do un animale
 		//3) Fa si che la persona adotti l'animale
 		//4) Ogni persona può adottare N animali
+		//5) Non si può adottare un animale che si ha già nella propria lista
 		//nota bene: la relazione deve essere persistente
 		p1.adopt(pet1);
 		p1.adopt(pet2);
+		p1.adopt(new Pet(pet1.getName(), pet1.getBreed(), pet1.getDateOfBirth()));
 		for (Pet pet : p1.getPets()) {
 			System.out.println("Che bel cucciolo, come si chiama? " + pet.getName());
 		}
