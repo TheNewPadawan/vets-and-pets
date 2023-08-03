@@ -29,5 +29,14 @@ public class Main {
 		p1.getPets().forEach(pet -> {
 			System.out.println("Che bel cucciolo, come si chiama? " + pet.getName());
 		});
+		
+		//1) Creare un person controller
+		//2) Creare repository
+		//3) Creare un CRUD completo
+		//3.1) Creare metodo create
+		//3.2) Creare metodo retrieve
+		//3.3) Creare metodo update
+		//3.4) Creare metodo delete
+		//4) Creare relativi metodi nel repository ed implementarli nei punti 3.x
 	}
 }
