@@ -1,5 +1,6 @@
 package io.thenewpadawan.example.vetsandpets.controller;
 
+import io.thenewpadawan.example.vetsandpets.model.Person;
 import io.thenewpadawan.example.vetsandpets.repository.PersonFakeRepository;
 
 public class PersonController implements DefaultController {
@@ -10,9 +11,8 @@ public class PersonController implements DefaultController {
 	}
 
 	@Override
-	public void create() {
-		// TODO Auto-generated method stub
-		
+	public void create(Person model) {
+		personRepository.insert(model);
 	}
 
 	@Override
