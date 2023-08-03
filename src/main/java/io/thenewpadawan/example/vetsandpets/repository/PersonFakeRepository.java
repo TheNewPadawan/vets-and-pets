@@ -1,5 +1,10 @@
 package io.thenewpadawan.example.vetsandpets.repository;
 
-public class PersonFakeRepository {
+import io.thenewpadawan.example.vetsandpets.model.Person;
 
+public class PersonFakeRepository {
+	
+	public void insert(Person p) {
+		
+	}
 }
