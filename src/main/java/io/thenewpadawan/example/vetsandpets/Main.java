@@ -2,7 +2,9 @@ package io.thenewpadawan.example.vetsandpets;
 
 import java.util.Date;
 
+import io.thenewpadawan.example.vetsandpets.controller.PersonController;
 import io.thenewpadawan.example.vetsandpets.model.*;
+import io.thenewpadawan.example.vetsandpets.repository.PersonFakeRepository;
 
 public class Main {
 
@@ -38,5 +40,8 @@ public class Main {
 		//3.3) Creare metodo update
 		//3.4) Creare metodo delete
 		//4) Creare relativi metodi nel repository ed implementarli nei punti 3.x
+		PersonFakeRepository personFakeRepository = new PersonFakeRepository();
+		PersonController personController = new PersonController(personFakeRepository);
+		personController.create(p1);
 	}
 }
