@@ -1,6 +1,13 @@
 package io.thenewpadawan.example.vetsandpets.controller;
 
+import io.thenewpadawan.example.vetsandpets.repository.PersonFakeRepository;
+
 public class PersonController implements DefaultController {
+	private final PersonFakeRepository personRepository;
+	
+	public PersonController(PersonFakeRepository personRepository) {
+		this.personRepository = personRepository;
+	}
 
 	@Override
 	public void create() {
