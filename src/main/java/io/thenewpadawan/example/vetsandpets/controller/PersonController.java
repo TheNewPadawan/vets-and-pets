@@ -12,25 +12,23 @@ public class PersonController implements DefaultController {
 
 	@Override
 	public void create(Person model) {
-		personRepository.insert(model);
+		personRepository.save(model);
 	}
 
 	@Override
-	public void retrieve() {
-		// TODO Auto-generated method stub
+	public Person retrieve(long id) {
+		return personRepository.findById(id); 	
+	}
+
+	@Override
+	public void update(Person model) {
+		personRepository.update(model);
 		
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-		
+	public void delete(long id) {
+		personRepository.deleteById(id);		
 	}
 
 }

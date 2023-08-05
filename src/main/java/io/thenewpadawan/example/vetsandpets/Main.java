@@ -43,5 +43,57 @@ public class Main {
 		PersonFakeRepository personFakeRepository = new PersonFakeRepository();
 		PersonController personController = new PersonController(personFakeRepository);
 		personController.create(p1);
+		Person pReturn = personController.retrieve(p1.getId());
+		if (!p1.equals(pReturn)) {
+			System.out.println("Salvataggio sul DB non andato a buon fine");
+		}
+		personController.create(p2);
+		pReturn = personController.retrieve(p2.getId());
+		if (p1.equals(pReturn)) {
+			System.out.println("Salvataggio sul DB non andato a buon fine, errore con ID");
+		}
+		if (!p2.equals(pReturn)) {
+			System.out.println("Salvataggio sul DB non andato a buon fine, errore con ID");
+		}
+		if (!p1.equals(personController.retrieve(p1.getId()))) {
+			System.out.println("Oggetto uno perso, non più nel DB");
+		}
+		pReturn = personController.retrieve(p1.getId());
+		personController.create(p1);
+		Person p1Updated = new Person(p1.getFirstname(), p1.getLastname());
+		p1Updated.setId(p1.getId());
+		p1Updated.setFirstname("Luana");
+		personController.update(p1Updated);
+		pReturn = personController.retrieve(p1Updated.getId());
+		//TEST:
+		//1) Verificare che l'oggetto p1Update abbia lo stesso id che aveva p1
+		if (p1.getId() == pReturn.getId() ) {
+			System.out.println("Gli oggetti hanno lo stesso id");
+		}
+		//2) Oggetto test p1 non deve più esistere 
+		if (p1.equals(pReturn)) {
+			System.out.println("Salvataggio sul DB non andato a buon fine, errore con ID");
+		}
+		//3) Oggetto test p1Updated deve esistere 
+		if (!p1.equals(pReturn)) {
+			System.out.println("Salvataggio sul DB andato a buon fine, nome: " + pReturn.getFirstname());
+		}
+		personController.update(p1);
+		pReturn = personController.retrieve(p1.getId());
+		if (p1.equals(pReturn)) {
+			System.out.println("non deve essere possibile richiamare un'update così semplicemente");
+		}
+		//TODO: in qualche modo, ora l'update della prossima riga lo faccio rifunzionare
+		p1.setId(p1Updated.getId());
+		personController.update(p1);
+		pReturn = personController.retrieve(p1.getId());
+		
+		//Test delete
+		personController.delete(p1.getId());
+		//1) Faccio una retrieve su quell'id 
+		pReturn = personController.retrieve(p1.getId());
+		if(pReturn == null) {
+			System.out.println("L'oggetto con questo id non è più disponibile");
+		}
 	}
 }
